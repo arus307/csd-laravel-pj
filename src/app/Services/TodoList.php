@@ -42,7 +42,7 @@ class TodoList
     {
         return array_values(array_filter(
             $this->todos,
-            fn($todo) => !$todo['completed']
+            fn ($todo) => ! $todo['completed']
         ));
     }
 
@@ -53,7 +53,7 @@ class TodoList
     {
         return array_values(array_filter(
             $this->todos,
-            fn($todo) => $todo['completed']
+            fn ($todo) => $todo['completed']
         ));
     }
 

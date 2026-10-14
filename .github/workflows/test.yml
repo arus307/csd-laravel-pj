@@ -10,12 +10,9 @@ on:
 
 # 実行する処理
 jobs:
-  phpunit-tests:
+  test:
     runs-on: ubuntu-latest
-    strategy:                          # ← この3行を追加
-      matrix:
-        php-version: ['8.3', '8.4']
-        
+
     steps:
     # 1. コードをチェックアウト
     - name: Checkout code
@@ -25,7 +22,7 @@ jobs:
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
       with:
-        php-version: ${{ matrix.php-version }}
+        php-version: '8.4'
         extensions: mbstring, pdo, pdo_sqlite
         coverage: none
 
@@ -49,7 +46,17 @@ jobs:
       working-directory: src
       run: chmod -R 777 storage bootstrap/cache
 
-    # 7. テストを実行
+    # 7. PHPStanで静的解析（追加）
+    - name: Run PHPStan
+      working-directory: src
+      run: ./vendor/bin/phpstan analyse --memory-limit=512M --error-format=github
+
+    # 8. PHP CS Fixerでコードスタイルチェック（追加）
+    - name: Run PHP CS Fixer
+      working-directory: src
+      run: ./vendor/bin/php-cs-fixer fix --dry-run --diff --format=txt
+
+    # 9. テストを実行
     - name: Run tests
       working-directory: src
       run: php artisan test
