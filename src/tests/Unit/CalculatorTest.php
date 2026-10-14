@@ -2,9 +2,9 @@
 
 namespace Tests\Unit;
 
-use PHPUnit\Framework\TestCase;
+use App\Services\Calculator;
 use PHPUnit\Framework\Attributes\Test;
-use App\Services\Calculator;  // ← まだ存在しないクラス！
+use PHPUnit\Framework\TestCase;  // ← まだ存在しないクラス！
 
 class CalculatorTest extends TestCase
 {
