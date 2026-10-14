@@ -21,7 +21,7 @@ class CalculatorTest extends TestCase
         $result = $calculator->add(2, 3);
 
         // Assert（検証）: 期待通りの結果になっているか確認
-        $this->assertEquals(5, $result);
+        $this->assertEquals(6, $result);
     }
 
 }
