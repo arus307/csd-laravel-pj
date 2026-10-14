@@ -1,6 +1,6 @@
 # Laravel TDD CICD
 
-![Run Tests](https://github.com/YOUR_USERNAME/YOUR_REPO/workflows/Run%20Tests/badge.svg)
+[![Run Tests](https://github.com/arus307/csd-laravel-pj/actions/workflows/test.yml/badge.svg)](https://github.com/arus307/csd-laravel-pj/actions/workflows/test.yml)
 
 ## 概要
 TDDで開発したTodoアプリです。
