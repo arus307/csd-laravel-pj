@@ -10,7 +10,7 @@ on:
 
 # 実行する処理
 jobs:
-  test:
+  phpunit-tests:
     runs-on: ubuntu-latest
 
     steps:
